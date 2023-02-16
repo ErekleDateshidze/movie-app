@@ -1,0 +1,15 @@
+<label for="movieName">Enter movie name:</label>
+<input type="text" id="movieName" [(ngModel)]="movieName" />
+<button (click)="getMovieDetails()">Get details</button>
+
+<div *ngIf="movie$ | async as movie">
+  <p>Release year: {{ releaseYear$ | async }}</p>
+  <p>Actors: {{ actorNames$ | async }}</p>
+  <p>Currencies and flags:</p>
+  <ul>
+    <li *ngFor="let currency of currencies$ | async">
+      {{ currency.name }} ({{ currency.symbol }}) -
+      <img [src]="currency.flagUrl" />
+    </li>
+  </ul>
+</div>
