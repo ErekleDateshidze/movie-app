@@ -12,32 +12,15 @@ export class MovieApiService {
   private apikey = '91059a25';
   constructor(private http:HttpClient) {}
 
-   getMovieDetails(title: string): Observable<Movie> {
+   getMovieDetails(title: string): Observable<any> {
     const url = `https://www.omdbapi.com/?t=${title}&apikey=${this.apikey}`;
-    return this.http.get<Movie>(url).pipe(
-      map((response: any) => ({
-        title: response.Title,
-        year: response.Year,
-        Runtime: response.Runtime,
-        actors: response.Actors.split(',').map((actor: string) => actor.split(' ')[0]),
-        country: response.Country,
-      }))
-    );
+    return this.http.get(url)
   }
-
-
 
   private baseUrl = 'https://restcountries.com/v3.1/name/';
 
-
-  getCountryDetails(name: string): Observable<Country> {
+  getCountryDetails(name: string): Observable<any> {
     const url = `${this.baseUrl}${name}`;
-    return this.http.get(url).pipe(
-      map((response: any) => ({
-        name: response[0].name.common,
-        population: response[0].population
-      }))
-    );
-  }
-
+    return this.http.get(url)
+  }  
 }
