@@ -12,7 +12,7 @@ import { MovieApiService } from '../movie-api.service';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-  movieName: string | undefined;
+  movieName: string='';
   movie$: Observable<Movie>| undefined;
   releaseYear$: Observable<number>| undefined;
   actorNames$: Observable<string> | undefined;
@@ -21,7 +21,7 @@ export class MovieDetailsComponent implements OnInit {
   constructor( private movieApiService: MovieApiService) {}
 
   ngOnInit(): void {
-    this.movie$ = this.movieService.getMovieDetails(this.movieName);
+    this.movie$ = this.movieApiService.getMovieDetails(this.movieName);
 
     this.releaseYear$ = this.movie$.pipe(
       switchMap(movie => {
