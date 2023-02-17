@@ -1,3 +1,12 @@
 <label for="movieName">Enter movie name:</label>
 <input type="text" id="movieName" [(ngModel)]="movieName" />
 <button (click)="getMovieDetails()">Get details</button>
+<div *ngIf="homeData | async as data">
+  <p>{{ data[1].title }}</p>
+  <p>{{ data[1].yearsAgo }}</p>
+  <p>{{ data[0].actor }}</p>
+  <div *ngFor="let item of data[3]">
+    <img [src]="item.flag.png" alt="" />
+    <p>{{ item.currencies }}</p>
+  </div>
+</div>
