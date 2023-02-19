@@ -1,12 +1,18 @@
-<label for="movieName">Enter movie name:</label>
-<input type="text" id="movieName" [(ngModel)]="movieName" />
-<button (click)="getMovieDetails()">Get details</button>
-<div *ngIf="homeData | async as data">
-  <p>{{ data[1].title }}</p>
-  <p>{{ data[1].yearsAgo }}</p>
-  <p>{{ data[0].actor }}</p>
-  <div *ngFor="let item of data[3]">
-    <img [src]="item.flag.png" alt="" />
-    <p>{{ item.currencies }}</p>
+<label for="movieName" class="label">Enter movie name:</label>
+<input type="text" id="movieName" [(ngModel)]="movieName" class="input" />
+<button class="button" (click)="getMovieDetails()">Get details</button>
+<div class="movie-details-container" *ngIf="homeData | async as data">
+  <div class="poster-container">
+    <img [src]="data[4]" alt="Movie Poster" class="poster" />
+  </div>
+  <div class="details-container">
+    <p class="title">Title : {{ data[1].title }}</p>
+    <p class="year">Released : {{ data[2].yearsAgo }} years ago</p>
+    <p>{{ data[1].yearsago }}</p>
+    <p class="actors">Cast : {{ data[0].actor }}</p>
+    <div class="country-container" *ngFor="let item of data[3]">
+      <img [src]="item.flag.png" alt="" class="country-flag" />
+      <p class="currencies">{{ item.currencies }}</p>
+    </div>
   </div>
 </div>

@@ -17,7 +17,8 @@ export class MovieDetailsComponent implements OnInit {
   releaseYear$: Observable<number>| undefined;
   actorNames$: Observable<string> | undefined;
   currencies$: Observable<any> | undefined;
-  homeData: Observable <any[]> | undefined
+  homeData: Observable <any[]> | undefined;
+  data: any;
  
   constructor( private movieApiService: MovieApiService) {}
 
@@ -27,7 +28,6 @@ export class MovieDetailsComponent implements OnInit {
     this.homeData=this.movieApiService.getMovieDetails(this.movieName).pipe(
       switchMap((movie) => {
         const actor = movie.Actors.split(',').map((a:string) => a.trim().split(' ')[0]);
-        const poster= movie.poster
         const title = movie.Title;
         const releaseDate = new Date(movie.Released);
         const currentYear = new Date().getFullYear();
@@ -35,7 +35,8 @@ export class MovieDetailsComponent implements OnInit {
         const countries = movie.Country.split(', ').map((country: any) =>
           this.fetchFlagsAndCurrencies(country)
         );
-        return forkJoin([of({ actor }), of({ title }), of({yearsAgo}, of({poster})), ...countries]);
+        const poster = this.movieApiService.getMoviePoster(movie.imdbID);
+        return forkJoin([of({ actor }), of({ title }), of({yearsAgo}), ...countries , poster]);
       }),tap(console.log)
     )
   }
@@ -49,11 +50,6 @@ export class MovieDetailsComponent implements OnInit {
           currencies: Object.keys(element.currencies),
           country: element.name}
         })
-        // return {
-        //   flag: x.flags,
-        //   currencies:Object.keys( x.currencies),
-        //   country: x.name
-        // };
       })
     );
   }

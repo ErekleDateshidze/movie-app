@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, Observable } from 'rxjs';
 import { Movie ,Country } from './api.model'
 
 
@@ -16,6 +15,15 @@ export class MovieApiService {
     const url = `https://www.omdbapi.com/?t=${title}&apikey=${this.apikey}`;
     return this.http.get(url)
   }
+
+  getMoviePoster(imdbId: string): Observable<string> {
+  const url = `https://www.omdbapi.com/?i=${imdbId}&apikey=${this.apikey}`;
+  return this.http.get(url).pipe(
+    map((res: any) => {
+      return res.Poster;
+    })
+  );
+}
 
   private baseUrl = 'https://restcountries.com/v3.1/name/';
 
