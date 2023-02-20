@@ -31,4 +31,20 @@ export class MovieApiService {
     const url = `${this.baseUrl}${name}`;
     return this.http.get(url)
   }  
+
+  addToMovieList() {
+    return this.http.get('http://localhost:3000/movieList')
+  }
+
+  saveMovie(data: any) {
+    return this.http.post('http://localhost:3000/movieList' ,data );
+  }
+
+  addComment(id:string , data: Movie) {
+    return this.http.patch(`http://localhost:3000/movieList/${id}`,data)
+  }
+
+  deleteMovie (id:string) {
+    return this.http.delete(`http://localhost:3000/movieList/${id}`)
+  }
 }

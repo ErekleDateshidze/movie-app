@@ -1,0 +1,84 @@
+
+.movie-details-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.movie-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.movie-item {
+    display: flex;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.poster-container {
+    flex: 1;
+    padding: 10px;
+}
+
+.poster {
+    width: 100%;
+}
+
+.details-container {
+    flex: 2;
+    padding: 10px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.year {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.country-container {
+    display: flex;
+    margin-top: 5px;
+}
+
+.country-flag {
+    width: 30px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.currencies {
+    font-size: 14px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.edit-button,
+.delete-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}

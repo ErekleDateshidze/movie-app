@@ -19,6 +19,7 @@ export class MovieDetailsComponent implements OnInit {
   currencies$: Observable<any> | undefined;
   homeData: Observable <any[]> | undefined;
   data: any;
+  movie:any;
  
   constructor( private movieApiService: MovieApiService) {}
 
@@ -46,12 +47,16 @@ export class MovieDetailsComponent implements OnInit {
       map((x: any) => {
         console.log(x , 'bla')
         return x.map((element:any) => {
-          return {flag: element.flags,
+          return {flag: element.flags, 
           currencies: Object.keys(element.currencies),
           country: element.name}
         })
       })
     );
+  }
+
+  addToList(data: any) {
+    this.movieApiService.saveMovie(data).subscribe((c) => console.log(c))
   }
   
 }
