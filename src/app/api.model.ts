@@ -6,7 +6,8 @@ export interface Movie {
   year: string;
   actors: string[];
   country: string;
-}
+  comments:string[]
+;}
 
 export interface Country {
   name: string;

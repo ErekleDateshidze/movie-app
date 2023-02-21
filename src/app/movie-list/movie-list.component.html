@@ -1,26 +1,4 @@
-<!-- <div>
-  <ul>
-    <li *ngFor="let movieList of movieList$ | async">
-      <div>
-        <div class="poster-container">
-          <img [src]="movieList[4]" alt="Movie Poster" class="poster" />
-        </div>
-        <div>{{ movieList[1].title }}</div>
-        <div>{{ movieList[1].title }}</div>
-        <div>{{ movieList[0].actor }}</div>
-        <div class="country-container" *ngFor="let item of movieList[3]">
-          <img [src]="item.flag.png" alt="" class="country-flag" />
-          <p class="currencies">{{ item.currencies }}</p>
-        </div>
-      </div>
-      <div>
-        <button>Edit</button>
-        <button>Delete</button>
-      </div>
-    </li>
-  </ul>
-</div> -->
-
+<h3>My FavoriteMovie List</h3>
 <div class="movie-details-container">
   <ul>
     <li class="movieitem" *ngFor="let movieList of movieList$ | async">
@@ -40,10 +18,19 @@
         </div>
       </div>
       <div>
-        <button class="edit-button">Edit</button>
+        <button
+          class="add-button"
+          (click)="addComment(movieList.id, commentText.value)"
+        >
+          Add Comment
+        </button>
         <button class="delete-button" (click)="deleteMovie(movieList.id)">
           Delete
         </button>
+      </div>
+      <div class="comments-container">
+        <h4>Comments:</h4>
+        <input type="text" #commentText />
       </div>
     </li>
   </ul>

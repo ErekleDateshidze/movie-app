@@ -1,58 +1,14 @@
 {
   "movieList": [
-    [
-      {
-        "actor": [
-          "Ko",
-          "Sung-Woo",
-          "Kim"
-        ]
-      },
-      {
-        "title": "Office"
-      },
-      {
-        "yearsAgo": 8
-      },
-      [
-        {
-          "flag": {
-            "png": "https://flagcdn.com/w320/kr.png",
-            "svg": "https://flagcdn.com/kr.svg",
-            "alt": "The flag of South Korea has a white field, at the center of which is a red and blue Taegeuk circle surrounded by four black trigrams, one in each corner."
-          },
-          "currencies": [
-            "KRW"
-          ],
-          "country": {
-            "common": "South Korea",
-            "official": "Republic of Korea",
-            "nativeName": {
-              "kor": {
-                "official": "대한민국",
-                "common": "한국"
-              }
-            }
-          }
-        }
+    {
+      "actor": [
+        "Sam",
+        "Zoe",
+        "Sigourney"
       ],
-      "https://m.media-amazon.com/images/M/MV5BZTA0NDM0ZWMtZDI0Zi00OWI5LWJlOTYtZTk5ZjAzYzIyNjQ3XkEyXkFqcGdeQXVyNDE2NjE1Njc@._V1_SX300.jpg"
-    ],
-    [
-      {
-        "actor": [
-          "Harrison",
-          "Rutger",
-          "Sean"
-        ]
-      },
-      {
-        "title": "Blade Runner"
-      },
-      {
-        "yearsAgo": 41
-      },
-      [
+      "title": "Avatar",
+      "yearsAgo": 14,
+      "countriesData": [
         {
           "flag": {
             "png": "https://flagcdn.com/w320/vi.png",
@@ -112,7 +68,9 @@
           }
         }
       ],
-      "https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
-    ]
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+      "id": 1,
+      "comments": ""
+    }
   ]
 }

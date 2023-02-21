@@ -15,14 +15,14 @@ export class MovieApiService {
     return this.http.get(url);
   }
 
-  getMoviePoster(imdbId: string): Observable<string> {
-    const url = `https://www.omdbapi.com/?i=${imdbId}&apikey=${this.apikey}`;
-    return this.http.get(url).pipe(
-      map((res: any) => {
-        return res.Poster;
-      })
-    );
-  }
+  // getMoviePoster(imdbId: string): Observable<string> {
+  //   const url = `https://www.omdbapi.com/?i=${imdbId}&apikey=${this.apikey}`;
+  //   return this.http.get(url).pipe(
+  //     map((res: any) => {
+  //       return res.Poster;
+  //     })
+  //   );
+  // }
 
   private baseUrl = 'https://restcountries.com/v3.1/name/';
 
@@ -39,9 +39,12 @@ export class MovieApiService {
     return this.http.post('http://localhost:3000/movieList', data);
   }
 
-  addComment(id: string, data: Movie) {
-    return this.http.patch(`http://localhost:3000/movieList/${id}`, data);
-  }
+  updateMovieComments(id: string, comments: string): Observable<any> {
+  const url = `http://localhost:3000/movieList/${id}`;
+  const data = { comments: comments };
+  return this.http.patch(url, data);
+}
+
 
   deleteMovie(id: string) {
     return this.http.delete(`http://localhost:3000/movieList/${id}`);

@@ -16,9 +16,13 @@ export class MovieListComponent implements OnInit {
   deleteMovie(id: string) {
     this.movieApiService.deleteMovie(id).subscribe(() => this.loadMovies());
   }
-
+  
   loadMovies() {
     this.movieList$ = this.movieApiService.addToMovieList();
+  }
+
+  addComment(id: string, comments: string) {
+    this.movieApiService.updateMovieComments(id, comments).subscribe(() => this.loadMovies());
   }
 
   ngOnInit(): void {
