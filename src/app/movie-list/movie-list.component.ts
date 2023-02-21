@@ -6,18 +6,22 @@ import { MovieApiService } from '../movie-api.service';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.scss']
+  styleUrls: ['./movie-list.component.scss'],
 })
 export class MovieListComponent implements OnInit {
-  movieList$: any= this.movieApiService.addToMovieList();
-  
-  
+  movieList$: Observable<any> | undefined;
+
   constructor(private movieApiService: MovieApiService) {}
 
-  deleteMovie (id:string) {
-    this.movieApiService.deleteMovie(id).subscribe(() => console.log('Movie Deleted'))
+  deleteMovie(id: string) {
+    this.movieApiService.deleteMovie(id).subscribe(() => this.loadMovies());
   }
 
-  ngOnInit(): void {}
+  loadMovies() {
+    this.movieList$ = this.movieApiService.addToMovieList();
+  }
 
+  ngOnInit(): void {
+    this.loadMovies();
+  }
 }

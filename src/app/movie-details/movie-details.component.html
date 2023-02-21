@@ -4,7 +4,7 @@
 <button class="button" routerLink="moviesList">My Movie List</button>
 <div class="movie-details-container" *ngIf="homeData | async as data">
   <div class="poster-container">
-    <img [src]="data[4]" alt="Movie Poster" class="poster" />
+    <img [src]="data[4].poster" alt="Movie Poster" class="poster" />
   </div>
   <div class="details-container">
     <p class="title">Title : {{ data[1].title }}</p>
