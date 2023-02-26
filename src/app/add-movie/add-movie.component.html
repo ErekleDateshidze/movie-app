@@ -1,0 +1,147 @@
+<form
+  *ngIf="movieForm"
+  [formGroup]="movieForm"
+  (ngSubmit)="handleSubmission()"
+  class="movie-form"
+>
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" formControlName="name" />
+    <div
+      *ngIf="
+        movieForm.controls['name'].errors &&
+        movieForm.controls['name'].dirty &&
+        isSubmitted
+      "
+      class="error-message"
+    >
+      <div *ngIf="movieForm.controls['name'].errors['required']">
+        Name is required
+      </div>
+      <div *ngIf="movieForm.controls['name'].errors['minlength']">
+        Name should have at least 3 characters
+      </div>
+      <div *ngIf="movieForm.controls['name'].errors['maxlength']">
+        Name should have at most 20 characters
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="form-group" formArrayName="country">
+    <label for="countries">Country/Countries:</label>
+    <select
+      id="countries"
+      *ngFor="let countryControl of movieForm.controls.country?.controls"
+    >
+      <option [value]="null" hidden>Select Country</option>
+      <option [value]="country" *ngFor="let country of allCountries | async">
+        {{ country }}
+      </option>
+    </select>
+    <button type="button" (click)="addCountryControl()">+</button>
+  </div> -->
+
+  <div class="form-group">
+    <label for="countries">Country/Countries:</label>
+    <select id="countries" formControlName="country">
+      <option [value]="null" hidden>Select Country</option>
+      <option [value]="country" *ngFor="let country of allCountries | async">
+        {{ country }}
+      </option>
+    </select>
+    <button type="button">+</button>
+  </div>
+
+  <div>
+    <label for="premierEventPlace">Premier Event Place:</label>
+    <input
+      type="text"
+      id="premierEventPlace"
+      formControlName="premierEventPlace"
+    />
+  </div>
+
+  <div>
+    <label for="releaseDate">Release Date:</label>
+    <input
+      type="date"
+      id="releaseDate"
+      formControlName="releaseDate"
+      required
+    />
+    <!-- <div *ngIf="movieForm.controls['releaseDate'].errors['required']">
+      Date is required
+    </div> -->
+  </div>
+
+  <div>
+    <app-genres [genres]="genres" formControlName="genres"></app-genres>
+  </div>
+
+  <div>
+    <div>Type:</div>
+    <div>
+      <input
+        type="radio"
+        value="Movie"
+        id="movie"
+        name="type"
+        formControlName="type"
+      />
+      <label for="vehicle1">Movie</label> <br />
+    </div>
+    <div>
+      <input
+        type="radio"
+        id="tv-show"
+        value="TV-Show"
+        name="type"
+        formControlName="type"
+      />
+      <label for="vehicle1">TV-Show</label> <br />
+    </div>
+  </div>
+
+  <div>
+    <div>Duration</div>
+    <div>
+      <input type="number" formControlName="minutes" />
+    </div>
+  </div>
+
+  <div
+    *ngIf="
+      movieForm.controls['minutes'].errors &&
+      movieForm.controls['minutes'].dirty &&
+      isSubmitted
+    "
+    class="error-message"
+  >
+    <div *ngIf="movieForm.controls['minutes'].errors['min']">
+      Duration should be at least 60 minutes
+    </div>
+    <div *ngIf="movieForm.controls['minutes'].errors['max']">
+      Duration should be maximum 190 minutes
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <div>Number of Series</div>
+      <div>
+        <input type="number" formControlName="episodes" />
+      </div>
+    </div>
+  </div>
+  <!-- 
+  <div *ngIf="movieForm.controls['type'].value === 'TV-Show'">
+    <div>
+      <div>Number of Series</div>
+      <div>
+        <input type="number" formControlName="episodes" [disabled]="true" />
+      </div>
+    </div>
+  </div> -->
+
+  <button type="submit">Add Movie</button>
+</form>

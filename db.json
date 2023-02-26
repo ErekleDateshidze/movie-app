@@ -1,76 +1,15 @@
 {
   "movieList": [
     {
-      "actor": [
-        "Sam",
-        "Zoe",
-        "Sigourney"
-      ],
-      "title": "Avatar",
-      "yearsAgo": 14,
-      "countriesData": [
-        {
-          "flag": {
-            "png": "https://flagcdn.com/w320/vi.png",
-            "svg": "https://flagcdn.com/vi.svg"
-          },
-          "currencies": [
-            "USD"
-          ],
-          "country": {
-            "common": "United States Virgin Islands",
-            "official": "Virgin Islands of the United States",
-            "nativeName": {
-              "eng": {
-                "official": "Virgin Islands of the United States",
-                "common": "United States Virgin Islands"
-              }
-            }
-          }
-        },
-        {
-          "flag": {
-            "png": "https://flagcdn.com/w320/um.png",
-            "svg": "https://flagcdn.com/um.svg"
-          },
-          "currencies": [
-            "USD"
-          ],
-          "country": {
-            "common": "United States Minor Outlying Islands",
-            "official": "United States Minor Outlying Islands",
-            "nativeName": {
-              "eng": {
-                "official": "United States Minor Outlying Islands",
-                "common": "United States Minor Outlying Islands"
-              }
-            }
-          }
-        },
-        {
-          "flag": {
-            "png": "https://flagcdn.com/w320/us.png",
-            "svg": "https://flagcdn.com/us.svg",
-            "alt": "The flag of the United States of America is composed of thirteen equal horizontal bands of red alternating with white. A blue rectangle, bearing fifty small five-pointed white stars arranged in nine rows where rows of six stars alternate with rows of five stars, is superimposed in the canton."
-          },
-          "currencies": [
-            "USD"
-          ],
-          "country": {
-            "common": "United States",
-            "official": "United States of America",
-            "nativeName": {
-              "eng": {
-                "official": "United States of America",
-                "common": "United States"
-              }
-            }
-          }
-        }
-      ],
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
-      "id": 1,
-      "comments": ""
+      "name": "ere",
+      "country": "DR Congo",
+      "premierEventPlace": "1213",
+      "releaseDate": "2023-01-30",
+      "genre": null,
+      "type": "Movie",
+      "minutes": 122,
+      "episodes": 1,
+      "id": 1
     }
   ]
 }

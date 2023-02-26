@@ -11,7 +11,7 @@ import { MovieApiService } from '../movie-api.service';
 export class MovieListComponent implements OnInit {
   movieList$: Observable<any> | undefined;
 
-  constructor(private movieApiService: MovieApiService) {}
+  constructor(private movieApiService: MovieApiService) {} 
 
   deleteMovie(id: string) {
     this.movieApiService.deleteMovie(id).subscribe(() => this.loadMovies());

@@ -2,6 +2,7 @@
 <input type="text" id="movieName" [(ngModel)]="movieName" class="input" />
 <button class="button" (click)="getMovieDetails()">Get details</button>
 <button class="button" routerLink="moviesList">My Movie List</button>
+<button class="button" routerLink="addMovie">Add Movie</button>
 <div class="movie-details-container" *ngIf="homeData | async as data">
   <div class="poster-container">
     <img [src]="data[4].poster" alt="Movie Poster" class="poster" />

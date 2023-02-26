@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
-import { Movie, Country } from './api.model';
+import { count, map, Observable } from 'rxjs';
+import { Movie, Country, NewCountry, MyMovie } from './api.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +23,14 @@ export class MovieApiService {
   //     })
   //   );
   // }
+
+  
+  getAllCountries() {
+    return this.http.get<NewCountry[]>('https://restcountries.com/v3.1/all').pipe(map(
+      countries => countries.map((country: NewCountry) => country.name.common)
+    ))
+  }
+  
 
   private baseUrl = 'https://restcountries.com/v3.1/name/';
 
@@ -48,5 +56,12 @@ export class MovieApiService {
 
   deleteMovie(id: string) {
     return this.http.delete(`http://localhost:3000/movieList/${id}`);
+  }
+
+  private moviesUrl = 'http://localhost:3000/movieList';
+
+
+  addMovie(movie: MyMovie): Observable<MyMovie> {
+    return this.http.post<MyMovie>(this.moviesUrl, movie);
   }
 }
