@@ -42,7 +42,7 @@ export interface MyMovie {
   country: FormControl<any>;
   premierEventPlace: FormControl<string| null>;
   releaseDate: FormControl< Date | null>;
-  genres: FormControl<any>;
+  genres: FormControl<Genres | null>;
   type: FormControl<Type | null>;
   minutes?: FormControl<number |  null>;
   episodes?: FormControl<number |   null>;

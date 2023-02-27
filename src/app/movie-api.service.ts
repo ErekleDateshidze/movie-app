@@ -15,14 +15,6 @@ export class MovieApiService {
     return this.http.get(url);
   }
 
-  // getMoviePoster(imdbId: string): Observable<string> {
-  //   const url = `https://www.omdbapi.com/?i=${imdbId}&apikey=${this.apikey}`;
-  //   return this.http.get(url).pipe(
-  //     map((res: any) => {
-  //       return res.Poster;
-  //     })
-  //   );
-  // }
 
   
   getAllCountries() {
@@ -65,3 +57,13 @@ export class MovieApiService {
     return this.http.post<MyMovie>(this.moviesUrl, movie);
   }
 }
+
+
+ // getMoviePoster(imdbId: string): Observable<string> {
+  //   const url = `https://www.omdbapi.com/?i=${imdbId}&apikey=${this.apikey}`;
+  //   return this.http.get(url).pipe(
+  //     map((res: any) => {
+  //       return res.Poster;
+  //     })
+  //   );
+  // }

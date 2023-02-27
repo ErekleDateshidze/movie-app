@@ -43,13 +43,17 @@
 
   <div class="form-group">
     <label for="countries">Country/Countries:</label>
-    <select id="countries" formControlName="country">
+    <select
+      id="countries"
+      formControlName="country"
+      *ngFor="let added of addedCountries"
+    >
       <option [value]="null" hidden>Select Country</option>
       <option [value]="country" *ngFor="let country of allCountries | async">
         {{ country }}
       </option>
     </select>
-    <button type="button">+</button>
+    <button type="button" (click)="addCountryControl()">+</button>
   </div>
 
   <div>
@@ -74,9 +78,9 @@
     </div> -->
   </div>
 
-  <div>
+  <!-- <div>
     <app-genres [genres]="genres" formControlName="genres"></app-genres>
-  </div>
+  </div> -->
 
   <div>
     <div>Type:</div>

@@ -1,14 +1,14 @@
 {
   "movieList": [
     {
-      "name": "ere",
-      "country": "DR Congo",
-      "premierEventPlace": "1213",
-      "releaseDate": "2023-01-30",
-      "genre": null,
+      "name": "erars",
+      "country": "Puerto Rico",
+      "premierEventPlace": "123123",
+      "releaseDate": "2023-02-23",
+      "genres": null,
       "type": "Movie",
-      "minutes": 122,
-      "episodes": 1,
+      "minutes": 65,
+      "episodes": 1221,
       "id": 1
     }
   ]

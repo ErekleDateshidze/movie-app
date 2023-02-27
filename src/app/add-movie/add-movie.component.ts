@@ -20,7 +20,6 @@ export class AddMovieComponent implements OnInit {
 
   isSubmitted= false;
 
-  country = []
 
   genres:Genre[] = [
     {
@@ -82,10 +81,10 @@ export class AddMovieComponent implements OnInit {
   private buildForm() {
     return this.fb.group<MyMovie>({
       name: this.fb.control('' ,  [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-      country: this.fb.control ([] , [Validators.required] ),
+      country: this.fb.control ([] , [Validators.required] ),      // country: this.fb.array([this.fb.control([null], Validators.required)]),
       premierEventPlace: this.fb.control (''),
       releaseDate:this.fb.control(null , [Validators.required]),
-      genres: this.fb.control(null),
+      genres: this.fb.control(null),    //[this.genres[1]]
       type: this.fb.control(Type.Movie),
       minutes:this.fb.control(null , [ Validators.min(60), Validators.max(190)]),
       episodes: this.fb.control(null)
@@ -93,7 +92,12 @@ export class AddMovieComponent implements OnInit {
     })
   }
 
-   addCountryControl() {
+  addedCountries = ['1']
+
+   addCountryControl() {;
+     this.addedCountries.push('21')
+     console.log(this.movieForm)
+    // countries.push(new FormControl(null, [Validators.required]));
     console.log('adding movie')
   }
 
